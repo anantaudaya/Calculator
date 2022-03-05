@@ -10,11 +10,12 @@ It's a calculator made with python and it's libraries.
 # Contributing:
 Any kind of contributions are welcome.
 
-Fork the repo on GitHub.
-Clone the project to your own machine.
-Commit changes to development branch.
-Push your work back up to your fork.
-Submit a Pull request so that I can review your changes
+1) Fork the repo on GitHub.
+2) Clone the project to your own machine.
+3) Commit changes to development branch.
+4) Push your work back up to your fork.
+5) Submit a Pull request so that I can review your changes
+
 Developer Details:
 Name:-Ananta Udaya Swain
 
