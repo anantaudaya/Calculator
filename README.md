@@ -1,7 +1,7 @@
 # Calculator
 It's a calculator made with python and it's libraries.
 
-# The libraries used in this project is Tkinter.
+# The librarie used in this project is Tkinter.
 
 # The ui looks as following:
 
