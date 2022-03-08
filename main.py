@@ -18,13 +18,11 @@ k1.grid(row=0,column=0,columnspan=4,padx=10,pady=10)
 
 def schar(b):
     global n1,d,temp1,m
-    print(d)
     if b=="=":
         d.append(str(n1))
         k1.delete(0,END)
         b1= "".join(d) +b
         k1.insert(0,b1)
-        print(d)
         if "**" in d:
             z= d.count("**")
             for _ in range(z):
@@ -49,7 +47,6 @@ def schar(b):
                     d.append(str(x))
                 else:
                     d.insert(o-1,str(x))
-                print(d)
         if  "*" in d:
             z= d.count("*")
             for _ in range(z):
@@ -62,7 +59,6 @@ def schar(b):
                     d.append(str(x))
                 else:
                     d.insert(o-1,str(x))
-                print(d)
         if  "+" in d:
             z= d.count("+")
             for _ in range(z):
@@ -75,7 +71,6 @@ def schar(b):
                     d.append(str(x))
                 else:
                     d.insert(o-1,str(x))
-                print(d)
         if  "-" in d:
             z= d.count("-")
             for _ in range(z):
@@ -88,7 +83,7 @@ def schar(b):
                     d.append(str(x))
                 else:
                     d.insert(o-1,str(x))
-                print(d)
+        
         if k.get()=="0":
             d=[]
             n1=0
@@ -109,7 +104,6 @@ def schar(b):
 
     elif len(d)>0 and((temp1 in ["+","-","*","/"])and b=="-" ) and m==0 :
             k.insert(0,"-")
-            print(n1)
             print(k.get())
             m=1
 
