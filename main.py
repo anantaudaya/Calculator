@@ -10,9 +10,9 @@ root.resizable(0,0)
 root.title("simple calculator")
 
 
-k = Entry(root,width =50,borderwidth=5)
+k = Entry(root,width =50,borderwidth=5,font="lucida 10 ")
 k.grid(row=1,column=0,columnspan=4,padx=10,pady=10)
-k1 = Entry(root,width =50,borderwidth=5)
+k1 = Entry(root,width =50,borderwidth=5,font="lucida 10 ")
 k1.grid(row=0,column=0,columnspan=4,padx=10,pady=10)
 
 
@@ -101,12 +101,14 @@ def schar(b):
     elif (len(d)==0 and b=="-") and m==0:
         k.insert(0,"-")
         m=1
-
     elif len(d)>0 and((temp1 in ["+","-","*","/"])and b=="-" ) and m==0 :
             k.insert(0,"-")
             print(k.get())
             m=1
-
+    elif temp1 in ["+","-","*","/"] and b in  ["+","-","*","/"]:
+        pp=k.get()
+        k.delete(0,END)
+        k.insert(0,pp)
     else:
         k.delete(0,END)
         d.append(str(n1))
@@ -118,16 +120,16 @@ def schar(b):
 
 
 def button_click(a):
-    global n1,c,m
+    global n1,c,m,temp1
     current=str(k.get())
     k.delete(0,END)
     k.insert(0,current+str(a))
     n1 =float(current+str(a))
+    temp1=0
 
-
-
+    
 def button_clicks(bbb):
-    global n1,m
+    global n1,m,temp1
     current = str(k.get())
     k.delete(0, END)
     if current =="-" and bbb==".":
@@ -147,16 +149,18 @@ def button_clicks(bbb):
         k.insert(0, current)
         n1= float(current)
     m=1
+    temp1=0
+    
 def button_clear():
-    global n1,d,m
+    global n1,d,m,temp1
     k.delete(0,END)
     k1.delete(0,END)
     n1= 0;d=[]
     m=0
-
+    temp1=0
 
 def button_cleare():
-    global n1,d,m
+    global n1,d,m,temp1
     if len(k.get())>2:
         n1 = k.get()[0:-2]
     elif len(k.get()) ==2:
@@ -166,26 +170,27 @@ def button_cleare():
         m=0
     k.delete(0,END)
     k.insert(0,str(n1))
+    temp1=0
 
-button_1=Button(root,text="1", padx=40,pady=20,command=lambda: button_click(1))
-button_2=Button(root,text="2", padx=40,pady=20,command=lambda: button_click(2))
-button_3=Button(root,text="3", padx=40,pady=20,command=lambda: button_click(3))
-button_4=Button(root,text="4", padx=40,pady=20,command=lambda: button_click(4))
-button_5=Button(root,text="5", padx=40,pady=20,command=lambda: button_click(5))
-button_6=Button(root,text="6", padx=40,pady=20,command=lambda: button_click(6))
-button_7=Button(root,text="7", padx=40,pady=20,command=lambda: button_click(7))
-button_8=Button(root,text="8", padx=40,pady=20,command=lambda: button_click(8))
-button_9=Button(root,text="9", padx=40,pady=20,command=lambda: button_click(9))
-button_0=Button(root,text="0", padx=40,pady=20,command=lambda: button_click(0))
-button_DOT=Button(root,text=".", padx=41.2,pady=20,command=lambda: button_clicks("."))
-button_add=Button(root,text="+", padx=38.48,pady=20,command=lambda: schar("+"))
-button_sub=Button(root,text="-", padx=40,pady=20,command=lambda: schar("-"))
-button_mul=Button(root,text="*", padx=40,pady=20,command=lambda: schar("*"))
-button_div=Button(root,text="/", padx=40,pady=20,command=lambda: schar("/"))
-button_pow=Button(root,text="pow", padx=31,pady=20,command=lambda: schar("**"))
-button_equal=Button(root,text="=", padx=39,pady=20,command=lambda:schar("="))
-button_clrae=Button(root,text="Clear", padx=77,pady=20,command=button_clear)
-button_clraee=Button(root,text="<-", padx=36,pady=20,command=button_cleare)
+button_1=Button(root,text="1", padx=40,pady=20,command=lambda: button_click(1),font="lucida 10")
+button_2=Button(root,text="2", padx=40,pady=20,command=lambda: button_click(2),font="lucida 10")
+button_3=Button(root,text="3", padx=40,pady=20,command=lambda: button_click(3),font="lucida 10")
+button_4=Button(root,text="4", padx=40,pady=20,command=lambda: button_click(4),font="lucida 10")
+button_5=Button(root,text="5", padx=40,pady=20,command=lambda: button_click(5),font="lucida 10")
+button_6=Button(root,text="6", padx=40,pady=20,command=lambda: button_click(6),font="lucida 10")
+button_7=Button(root,text="7", padx=40,pady=20,command=lambda: button_click(7),font="lucida 10")
+button_8=Button(root,text="8", padx=40,pady=20,command=lambda: button_click(8),font="lucida 10")
+button_9=Button(root,text="9", padx=40,pady=20,command=lambda: button_click(9),font="lucida 10")
+button_0=Button(root,text="0", padx=40,pady=20,command=lambda: button_click(0),font="lucida 10")
+button_DOT=Button(root,text=".", padx=41.2,pady=20,command=lambda: button_clicks("."),font="lucida 10")
+button_add=Button(root,text="+", padx=38.48,pady=20,command=lambda: schar("+"),font="lucida 10")
+button_sub=Button(root,text="-", padx=40,pady=20,command=lambda: schar("-"),font="lucida 10")
+button_mul=Button(root,text="*", padx=40,pady=20,command=lambda: schar("*"),font="lucida 10")
+button_div=Button(root,text="/", padx=40,pady=20,command=lambda: schar("/"),font="lucida 10")
+button_pow=Button(root,text="pow", padx=31,pady=20,command=lambda: schar("**"),font="lucida 10")
+button_equal=Button(root,text="=", padx=39,pady=20,command=lambda:schar("="),font="lucida 10")
+button_clrae=Button(root,text="Clear", padx=77,pady=20,command=button_clear,font="lucida 10")
+button_clraee=Button(root,text="<-", padx=36,pady=20,command=button_cleare,font="lucida 10")
 
 button_7.grid(row=2,column=0)
 button_8.grid(row=2,column=1)
